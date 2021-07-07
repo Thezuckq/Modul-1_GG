@@ -1,0 +1,36 @@
+<html>
+<header>
+    <meta charset="utf-8">
+    <title>Playlist Creator by Dzakky</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+</header>
+
+<body>
+    <h1>Create Playlist</h1>
+    
+    <form>
+        <label for="inpTitle" class='labTitle'>Title: </label>
+        <input type="text" name="inpTitle" id="title" class='inputTitle'><br>
+        <label for="inpDesc" class='labDesc'>Description: </label>
+        <input type="text" name="inpDesc" id="desc" class='inputDesc'><br>
+        <input type="submit" value="Submit" class='inputSubmit' onclick='onSubmit()'>
+    </form>
+
+    <div class='boxPlaylist'>
+        <img src="https://source.unsplash.com/JgOX5rKmB0M/320x400">
+        <p class='text'>Track title</p>
+        <p class='text'>Artists</p>
+        <p class='text'>Albums</p>
+        <input type='button' value='Select'>
+    </div>
+
+<script>
+    function onSubmit() {
+        const title = document.getElementById("title").value;
+        const desc = document.getElementById("desc").value;
+        const message = "Your playlist is successfully created. " + title + " ,desc: " + desc;
+        alert(message);
+    }
+</script>
+</body>
+</html>
