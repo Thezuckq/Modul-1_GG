@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hands On 1</title>
+</head>
+<body>
+
+    <div style="
+        display: grid;
+        grid-template-columns: 1fr 1fr;" 
+        id="user-table">
+        <h3>Name</h3>
+        <h3>Age</h3>
+    </div>
+
+    <p style="margin-bottom: 12px;" id="result"></p>
+    <button>Check Average Age</button>
+
+<script>
+    const USER_DATA = [
+  { name: "Dzakky", age: 24 },
+  { name: "Brian", age: 28 },
+  { name: "Niki" },
+];
+
+const INIT_AGE = 20;
+
+let totalAge = 0;
+
+// Tabel Data
+const table = document.getElementById("user-table");
+
+USER_DATA.forEach((user) => {
+  const name = document.createElement("p");
+  const age = document.createElement("p");
+
+  name.innerText = user.name;
+  age.innerText = user.age ? user.age : INIT_AGE;
+
+  table.append(name);
+  table.append(age);
+
+  totalAge += user.age ? user.age : INIT_AGE;
+});
+
+// Kalkulasi umur rata-rata (avg, total)
+const result = document.getElementById("result");
+const averageAge = totalAge / USER_DATA.length;
+
+// Async await
+function resolveAfter1Seconds() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve('Second Call Start');
+    }, 1000);
+  });
+}
+
+function resolveAfter2Seconds() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve('Second Call Finished, Third Call Start');
+    }, 2000);
+  });
+}
+
+function resolveAfter3Seconds() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve('All Finished');
+    }, 3000);
+  });
+}
+
+async function asyncCall() {
+  const result = await resolveAfter1Seconds();
+  console.log(result);
+  const result1 = await resolveAfter2Seconds();
+  console.log(result1);
+  const result2 = await resolveAfter3Seconds();
+  console.log(result2);
+  // expected output: "resolved"
+}
+
+const button = document.querySelector("button");
+button.onclick = () => {
+  console.log('calc start');
+  console.log(averageAge)
+  console.log(asyncCall());
+  result.innerText = `Avg: ${averageAge}`;
+};
+</script>
+</body>
+</html>
