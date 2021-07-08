@@ -52,11 +52,14 @@ h1 {
     border: 4px solid #489fb5;
     background: #82c0cc;
     border-radius: 24px;
-    width: fit-content;
+    max-width: 300px;
 }
 
 .text {
     color: #212121;
-    font-size: 24px;
+    font-size: 20px;
+}
 
+#trackTitle {
+    font-weight: 500;
 }

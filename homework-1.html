@@ -3,6 +3,7 @@
     <meta charset="utf-8">
     <title>Playlist Creator by Dzakky</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="bundle.js"></script>
 </header>
 
 <body>
@@ -17,20 +18,11 @@
     </form>
 
     <div class='boxPlaylist'>
-        <img src="https://source.unsplash.com/JgOX5rKmB0M/320x400">
-        <p class='text'>Track title</p>
-        <p class='text'>Artists</p>
-        <p class='text'>Albums</p>
+        <img src="https://i.scdn.co/image/ab67616d00001e02e8b066f70c206551210d902b">
+        <p class='text' id="trackTitle">Track title</p>
+        <p class='text' id="artists">Artists</p>
+        <p class='text' id="albums">Albums</p>
         <input type='button' value='Select'>
     </div>
-
-<script>
-    function onSubmit() {
-        const title = document.getElementById("title").value;
-        const desc = document.getElementById("desc").value;
-        const message = "Your playlist is successfully created. " + title + " ,desc: " + desc;
-        alert(message);
-    }
-</script>
 </body>
 </html>
